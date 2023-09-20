@@ -1,0 +1,17 @@
+server:
+  port: 8080
+spring:
+  application:
+    name: seata-rm-stock
+  cloud:
+    nacos:
+      config:
+        group: SEATA_GROUP
+        enabled: true
+        file-extension: yaml
+        server-addr: 127.0.0.1:8848
+        refresh-enabled: true
+      discovery:
+        server-addr: 127.0.0.1:8848
+        group: SEATA_GROUP
+        enabled: true

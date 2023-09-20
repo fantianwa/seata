@@ -1,0 +1,17 @@
+server:
+  port: 8081
+spring:
+  application:
+    name: seata-tm
+  cloud:
+    nacos:
+      server-addr: 127.0.0.1:8848
+      config:
+        group: SEATA_GROUP
+        enabled: true
+        file-extension: yaml
+      discovery:
+        group: SEATA_GROUP
+        enabled: true
+
+

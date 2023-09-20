@@ -1,0 +1,16 @@
+#seata:
+#  enabled: true
+#  application-id: ${spring.application.name}
+#  tx-service-group: fantianwa
+#  registry:
+#    type: nacos
+#    nacos:
+#      server-addr: 127.0.0.1:8848
+#      group: SEATA_GROUP
+#      username: nacos
+#      password: nacos
+#  service:
+#    vgroup-mapping:
+#      fantianwa: default
+#    grouplist:
+#      default: 127.0.0.1:8091
