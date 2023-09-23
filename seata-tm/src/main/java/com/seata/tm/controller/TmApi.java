@@ -1,5 +1,6 @@
 package com.seata.tm.controller;
 
+import com.seata.tm.openfeignservice.StockFeignService;
 import com.seata.tm.requestentity.Request;
 import com.seata.tm.requestentity.Stock;
 import io.seata.spring.annotation.GlobalTransactional;
@@ -21,10 +22,14 @@ public class TmApi {
     @Value("${seata.tx-service-group}")
     private String group;
 
+    @Autowired
+    private StockFeignService stockFeignService;
+
     @PostMapping("/testSeata")
     @GlobalTransactional(timeoutMills = 5000)
     public String testSeata(@RequestBody Request request) {
-        restTemplate.postForObject("http://seata-rm-stock/reduceStock", request, String.class);
+//        restTemplate.postForObject("http://seata-rm-stock/reduceStock", request, String.class);
+        stockFeignService.reduceStock(request);
         return "success";
     }
 
